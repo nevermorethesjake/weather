@@ -86,8 +86,7 @@ def makeWebhookResult(data):
     speech = [
         {
           "type": 0
-            "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
-             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
+            "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
         },
         {
           "imageUrl": "http://media.nu.nl/m/hrtxphtaalmc_std640.jpg/trump-en-netanyahu-richten-pijlen-iran.jpg",
