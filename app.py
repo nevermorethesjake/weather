@@ -87,7 +87,7 @@ def makeWebhookResult(data):
         {
           "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
              " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
-        {
+        {,
           "imageUrl": "http://media.nu.nl/m/hrtxphtaalmc_std640.jpg/trump-en-netanyahu-richten-pijlen-iran.jpg",
           "type": 3
         }
