@@ -82,7 +82,10 @@ def makeWebhookResult(data):
     # print(json.dumps(item, indent=4))
 
     speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
-             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius" + image.get('url')
+             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
+        
+    print("Response:")
+    print(speech)
 
     kik_message = [
         {
@@ -90,15 +93,13 @@ def makeWebhookResult(data):
             "picUrl": image.get('url')
         }
     ]
-        
-    print("Response:")
-    print(speech)
-    print(kik_message)
-
+    
+    print(json.dumps(kik_message))
+    
     return {
         "speech": speech,
         "displayText": speech,
-        "data": kik_message,
+        "data": {"kik": kik_message},
          # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
