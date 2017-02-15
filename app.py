@@ -99,7 +99,7 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"kik": kik_message},
+        "data": kik_message,
          # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
