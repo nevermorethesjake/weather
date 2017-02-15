@@ -84,17 +84,24 @@ def makeWebhookResult(data):
     speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
              " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius" + image.get('url')
 
+    kik_message = [
+        {
+            "type": "picture",
+            "picUrl": "https://scontent.xx.fbcdn.net/v/t31.0-8/15252625_958811834263193_4320944789874430168_o.jpg?oh=c248aa6396b2d60a60813c94a4c4f487&oe=594483B6"
+        }
+    ]
+        
     print("Response:")
     print(speech)
+    print(kik_message)
 
     return {
         "speech": speech,
         "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
+        "data": {"messenger": kik_message},
+         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
