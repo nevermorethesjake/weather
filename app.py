@@ -98,10 +98,21 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"messenger": kik_message},
+        "data": kik_message,
          # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
+
+    print(json.dumps(kik_message))
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "data": {"kik": kik_message},
+        # "contextOut": [],
+        "source": "apiai-kik-images"
+    }
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
