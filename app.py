@@ -69,9 +69,10 @@ def makeWebhookResult(data):
         return {}
 
     item = channel.get('item')
+    image = channel.get('image')
     location = channel.get('location')
     units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
+    if (location is None) or (item is None) or (image is None) or (units is None):
         return {}
 
     condition = item.get('condition')
@@ -81,7 +82,7 @@ def makeWebhookResult(data):
     # print(json.dumps(item, indent=4))
 
     speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
-             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
+             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius" + image.get('url')
 
     print("Response:")
     print(speech)
