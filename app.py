@@ -80,10 +80,13 @@ def makeWebhookResult(data):
         return {}
 
     # print(json.dumps(item, indent=4))
+   
+    speech = "Showing item "
 
+    print("Response:")
+    print(speech)
 
-
-    speech = [
+    message = [
         {
           "type": 0,
           "speech": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
@@ -94,15 +97,14 @@ def makeWebhookResult(data):
           "type": 3
         }
     ]
-    
-    print("Response:")
-    print(speech)
+
+    print(json.dumps(message))
 
     return {
         "speech": speech,
         "displayText": speech,
-        "data": speech,
-         # "contextOut": [],
+        "data": message,
+        # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
 
