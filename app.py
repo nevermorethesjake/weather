@@ -81,39 +81,30 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
-             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
-        
-    print("Response:")
-    print(speech)
 
-    kik_message = [
+
+    speech = [
         {
-            "type": "picture",
-            "picUrl": image.get('url')
+          "type": 0,
+          "speech": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
+             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
+        },
+        {
+          "imageUrl": "https://scontent.xx.fbcdn.net/v/t31.0-8/15252625_958811834263193_4320944789874430168_o.jpg?oh=c248aa6396b2d60a60813c94a4c4f487&oe=594483B6",
+          "type": 3
         }
     ]
     
-    print(json.dumps(kik_message))
-    
+    print("Response:")
+    print(speech)
+
     return {
         "speech": speech,
         "displayText": speech,
-        "data": kik_message,
+        "data": speech,
          # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
-
-    print(json.dumps(kik_message))
-
-    return {
-        "speech": speech,
-        "displayText": speech,
-        "data": {"kik": kik_message},
-        # "contextOut": [],
-        "source": "apiai-kik-images"
-    }
-
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
