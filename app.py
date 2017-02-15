@@ -81,19 +81,15 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
    
-    speech = "Showing item "
+    speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
+             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
 
     print("Response:")
     print(speech)
 
     message = [
         {
-          "type": 0,
-          "speech": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
-             " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
-        },
-        {
-          "imageUrl": "https://scontent.xx.fbcdn.net/v/t31.0-8/15252625_958811834263193_4320944789874430168_o.jpg?oh=c248aa6396b2d60a60813c94a4c4f487&oe=594483B6",
+          "imageUrl": "http://media.nu.nl/m/hrtxphtaalmc_std640.jpg/trump-en-netanyahu-richten-pijlen-iran.jpg",
           "type": 3
         }
     ]
@@ -103,7 +99,7 @@ def makeWebhookResult(data):
     return {
         "speech": speech,
         "displayText": speech,
-        "data": "https://scontent.xx.fbcdn.net/v/t31.0-8/15252625_958811834263193_4320944789874430168_o.jpg?oh=c248aa6396b2d60a60813c94a4c4f487&oe=594483B6",
+        "data": message,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
