@@ -81,25 +81,25 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
    
-    speech = "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
+
+
+    speech = [
+        {
+          "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
              " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
-
-    print("Response:")
-    print(speech)
-
-    message = [
         {
           "imageUrl": "http://media.nu.nl/m/hrtxphtaalmc_std640.jpg/trump-en-netanyahu-richten-pijlen-iran.jpg",
           "type": 3
         }
     ]
 
+    print("Response:")
     print(json.dumps(message))
 
     return {
         "speech": speech,
         "displayText": speech,
-        "data": message,
+        # "data": message,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
     }
