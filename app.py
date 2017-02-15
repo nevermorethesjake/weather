@@ -85,7 +85,8 @@ def makeWebhookResult(data):
 
     speech = [
         {
-          "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
+          "type": 0
+            "message": "Vandaag in " + location.get('city') + ": " + condition.get('text') + \
              " en het is " + condition.get('temp') + " " + units.get('temperature') + "elcius"
         },
         {
@@ -95,7 +96,7 @@ def makeWebhookResult(data):
     ]
 
     print("Response:")
-    print(json.dumps(message))
+    print(json.dumps(speech))
 
     return {
         "speech": speech,
